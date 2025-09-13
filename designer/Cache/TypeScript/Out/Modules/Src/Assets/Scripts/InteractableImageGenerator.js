@@ -20,12 +20,12 @@ let InteractableImageGenerator = class InteractableImageGenerator extends BaseSc
         });
     }
     createImage(prompt) {
-        this.textDisplay.text = "Thinking about: " + prompt;
+        this.textDisplay.text = "Imagining... " + prompt;
         this.imageGenerator
             .generateImage(prompt)
             .catch((error) => {
             print("Error generating room: " + error);
-            this.textDisplay.text = "Error Generating Room";
+            this.textDisplay.text = "Error Generating Room :(";
         });
     }
     __initialize() {

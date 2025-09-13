@@ -31,12 +31,12 @@ export class InteractableImageGenerator extends BaseScriptComponent {
   }
 
   createImage(prompt: string) {
-    this.textDisplay.text = "Thinking about: " + prompt;
+    this.textDisplay.text = "Imagining... " + prompt;
     this.imageGenerator
       .generateImage(prompt)
       .catch((error) => {
         print("Error generating room: " + error);
-        this.textDisplay.text = "Error Generating Room";
+        this.textDisplay.text = "Error Generating Room :(";
       });
   }
 }
