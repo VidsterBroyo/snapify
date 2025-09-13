@@ -182,7 +182,7 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 20.000000, z: 0.000000}
+    Position: {x: 0.000000, y: 22.000000, z: 0.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
@@ -1446,8 +1446,8 @@
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
   SizeToFit: false
-  FontSize: 250
-  Font: !<reference> 00000000-0000-0000-0000-000000000000
+  FontSize: 300
+  Font: !<reference> 42e12639-4f76-4f7a-bfab-b3c65dde231f
   LayoutRect:
     left: -7.500000
     bottom: -2.250000
@@ -1457,13 +1457,13 @@
   OverflowHorizontal: Overflow
   Fill: !<TextFill>
     Mode: Solid
-    Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-    Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    Color: {x: 0.443137, y: 0.047059, z: 1.000000, w: 1.000000}
+    Texture: !<reference> 0081e38b-764a-445b-968d-3f1d0a0a1296
     TileCount: 5.000000
     TileZone: Rect
     TextureStretch: FitWidth
   Outline: !<OutlineSettings>
-    Enabled: true
+    Enabled: false
     Fill: !<TextFill>
       Mode: Solid
       Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
@@ -1473,7 +1473,7 @@
       TextureStretch: FitWidth
     Size: 0.100000
   Dropshadow: !<DropshadowSettings>
-    Enabled: true
+    Enabled: false
     Fill: !<TextFill>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
@@ -1487,17 +1487,17 @@
     Enabled: true
     Fill: !<TextFill>
       Mode: Solid
-      Color: {x: 0.500008, y: 0.451148, z: 0.000000, w: 1.000000}
+      Color: {x: 0.494118, y: 0.631373, z: 0.039216, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
     Margins:
-      left: 1.000000
-      bottom: 1.000000
-      right: 1.000000
-      top: 1.000000
-    CornerRadius: 1.000000
+      left: 5.000000
+      bottom: 2.000000
+      right: 5.000000
+      top: 2.000000
+    CornerRadius: 7.000000
   AdvancedLayout: !<TextAdvancedLayout>
     ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
     LetterSpacing: 0.000000

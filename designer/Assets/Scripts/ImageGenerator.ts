@@ -4,19 +4,65 @@ import { Gemini } from "Remote Service Gateway.lspkg/HostedExternal/Gemini";
 import { GeminiTypes } from "Remote Service Gateway.lspkg/HostedExternal/GeminiTypes";
 
 
+type ShopifyAPIResponse = {
+  data: {
+    products: {
+      edges: {
+        node: {
+          id: string;
+          title: string;
+          description: string;
+          images: {
+            edges: {
+              node: {
+                url: string;
+              };
+            }[];
+          };
+        };
+      }[];
+    };
+  };
+};
 
+type FurnitureItem = {
+  id: string;
+  idNumber: string;
+  title: string;
+  description: string;
+  image_url: string | null;
+};
+
+function transformShopifyProducts(apiResponse: ShopifyAPIResponse): FurnitureItem[] {
+  return apiResponse.data.products.edges.map(({ node }) => {
+    const idNumber = node.id.split("/").pop() ?? node.id;
+    const image_url = node.images.edges[0]?.node.url ?? null;
+
+    return {
+      id: node.id,
+      idNumber,
+      title: node.title,
+      description: node.description,
+      image_url,
+    };
+  });
+}
 
 export class ImageGenerator {
   private rmm = require("LensStudio:RemoteMediaModule") as RemoteMediaModule;
+  public internetModule: InternetModule = require("LensStudio:InternetModule");
   private model: string;
+
+  private allShopifyItems:FurnitureItem[] = [];
 
   constructor(model: string) {
     this.model = model;
   }
 
   generateImage(userDesire: string): Promise<Texture> {
+    this.fetchShopifyItems()
 
-        let request: GeminiTypes.Models.GenerateContentRequest = {
+    let request: GeminiTypes.Models.GenerateContentRequest = {
       model: 'gemini-2.0-flash',
       type: 'generateContent',
       body: {
@@ -51,7 +97,7 @@ export class ImageGenerator {
           recommendedIds.includes(product.idNumber) // filter by idNumber rather than id because sometimes gemini will  just give number ???
         );
 
-        print("Recommended: "+recommendedProducts.map(e => e.title).join(", "))
+        print("Recommended: " + recommendedProducts.map(e => e.title).join(", "))
 
       })
       .catch((error) => {
@@ -66,6 +112,59 @@ export class ImageGenerator {
       return this.generateWithGemini(userDesire);
     }
   }
+
+  fetchShopifyItems() {
+    print("fetching shopify items...")
+
+
+    const url = "https://furnituremaxi.myshopify.com/api/2025-07/graphql.json";
+    const query = `
+    {
+      products(first: 10) {
+        edges {
+          node {
+            id
+            title
+            description
+            productType
+            handle
+            
+            images(first: 3) {
+              edges {
+                node {
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const headers = {
+      "Content-Type": "application/json",
+    };
+
+    this.internetModule
+      .fetch(url, {
+        method: "POST",
+        headers: headers,
+        body: JSON.stringify({ query })
+      })
+
+      .then(response => response.json())
+      .then(data => {
+        this.allShopifyItems.push(...transformShopifyProducts(data))
+      })
+      .catch(error => {
+        print("Error fetching Shopify items:" + error);
+      });
+
+
+      this.allShopifyItems.forEach(e => print(e.title))
+  }
+
 
   private generateWithGemini(prompt: string): Promise<Texture> {
     return new Promise((resolve, reject) => {
@@ -167,7 +266,10 @@ export class ImageGenerator {
         .catch((error) => reject(error));
     });
   }
+
 }
+
+
 
 
 

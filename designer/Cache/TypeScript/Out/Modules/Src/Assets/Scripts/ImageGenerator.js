@@ -3,12 +3,29 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ImageGenerator = void 0;
 const OpenAI_1 = require("Remote Service Gateway.lspkg/HostedExternal/OpenAI");
 const Gemini_1 = require("Remote Service Gateway.lspkg/HostedExternal/Gemini");
+function transformShopifyProducts(apiResponse) {
+    return apiResponse.data.products.edges.map(({ node }) => {
+        var _a, _b, _c;
+        const idNumber = (_a = node.id.split("/").pop()) !== null && _a !== void 0 ? _a : node.id;
+        const image_url = (_c = (_b = node.images.edges[0]) === null || _b === void 0 ? void 0 : _b.node.url) !== null && _c !== void 0 ? _c : null;
+        return {
+            id: node.id,
+            idNumber,
+            title: node.title,
+            description: node.description,
+            image_url,
+        };
+    });
+}
 class ImageGenerator {
     constructor(model) {
         this.rmm = require("LensStudio:RemoteMediaModule");
+        this.internetModule = require("LensStudio:InternetModule");
+        this.allShopifyItems = [];
         this.model = model;
     }
     generateImage(userDesire) {
+        this.fetchShopifyItems();
         let request = {
             model: 'gemini-2.0-flash',
             type: 'generateContent',
@@ -51,6 +68,50 @@ class ImageGenerator {
         else {
             return this.generateWithGemini(userDesire);
         }
+    }
+    fetchShopifyItems() {
+        print("fetching shopify items...");
+        const url = "https://furnituremaxi.myshopify.com/api/2025-07/graphql.json";
+        const query = `
+    {
+      products(first: 10) {
+        edges {
+          node {
+            id
+            title
+            description
+            productType
+            handle
+            
+            images(first: 3) {
+              edges {
+                node {
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+        const headers = {
+            "Content-Type": "application/json",
+        };
+        this.internetModule
+            .fetch(url, {
+            method: "POST",
+            headers: headers,
+            body: JSON.stringify({ query })
+        })
+            .then(response => response.json())
+            .then(data => {
+            this.allShopifyItems.push(...transformShopifyProducts(data));
+        })
+            .catch(error => {
+            print("Error fetching Shopify items:" + error);
+        });
+        this.allShopifyItems.forEach(e => print(e.title));
     }
     generateWithGemini(prompt) {
         return new Promise((resolve, reject) => {

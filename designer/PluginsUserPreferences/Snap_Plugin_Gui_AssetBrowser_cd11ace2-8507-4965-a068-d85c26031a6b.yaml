@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 713
+    size: 716
     values:
       - LSTween.lspkg
       - LSTween.lspkg/Examples
@@ -708,6 +708,9 @@ CollapsedEntities:
       - Visuals/ActivityIndicator
       - Visuals/ActivityIndicator/ActivityIndicator.mat
       - Visuals/ActivityIndicator/ActivityIndicator.ss_graph
+      - Visuals/Font
+      - Visuals/Font/AkayaKanadaka-Regular.ttf
+      - Visuals/Font/SuperWoobly.ttf
       - Visuals/Image.mat
       - Visuals/Plane.mesh
       - Visuals/Textures
