@@ -8,12 +8,44 @@ class ImageGenerator {
         this.rmm = require("LensStudio:RemoteMediaModule");
         this.model = model;
     }
-    generateImage(prompt) {
+    generateImage(userDesire) {
+        print("what the user wants:" + userDesire);
+        let request = {
+            model: 'gemini-2.0-flash',
+            type: 'generateContent',
+            body: {
+                contents: [
+                    {
+                        parts: [
+                            {
+                                text: "You are a professional interior designer. You are to help this client. They will tell you what vibe they want for their room.",
+                            },
+                        ],
+                        role: 'model',
+                    },
+                    {
+                        parts: [
+                            {
+                                text: userDesire,
+                            },
+                        ],
+                        role: 'user',
+                    },
+                ],
+            },
+        };
+        Gemini_1.Gemini.models(request)
+            .then((response) => {
+            print(response.candidates[0].content.parts[0].text);
+        })
+            .catch((error) => {
+            print('Error: ' + error);
+        });
         if (this.model === "OpenAI") {
-            return this.generateWithOpenAI(prompt);
+            return this.generateWithOpenAI(userDesire);
         }
         else {
-            return this.generateWithGemini(prompt);
+            return this.generateWithGemini(userDesire);
         }
     }
     generateWithGemini(prompt) {

@@ -11,11 +11,48 @@ export class ImageGenerator {
     this.model = model;
   }
 
-  generateImage(prompt: string): Promise<Texture> {
+  generateImage(userDesire: string): Promise<Texture> {
+
+    print("what the user wants:" + userDesire)
+
+    let request: GeminiTypes.Models.GenerateContentRequest = {
+      model: 'gemini-2.0-flash',
+      type: 'generateContent',
+      body: {
+        contents: [
+          {
+            parts: [
+              {
+                text: "You are a professional interior designer. You are to help this client. They will tell you what vibe they want for their room.",
+              },
+            ],
+            role: 'model',
+          },
+          {
+            parts: [
+              {
+                text: userDesire,
+              },
+            ],
+            role: 'user',
+          },
+        ],
+      },
+    };
+
+    Gemini.models(request)
+      .then((response) => {
+        print(response.candidates[0].content.parts[0].text);
+      })
+      .catch((error) => {
+        print('Error: ' + error);
+      });
+  
+
     if (this.model === "OpenAI") {
-      return this.generateWithOpenAI(prompt);
+      return this.generateWithOpenAI(userDesire);
     } else {
-      return this.generateWithGemini(prompt);
+      return this.generateWithGemini(userDesire);
     }
   }
 
