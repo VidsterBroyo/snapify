@@ -197,7 +197,7 @@ function App() {
 
     // --- Hardcoded product ---
     const extraProduct = {
-        "id": "gid://shopify/Product/7198596628549",
+        "id": "7198596628549",
         "title": "Avery Velvet Reversible Corner Sofa Bed With Storage Chaise",
         "description": "The Essential Velvet Reversible Corner Sofa Bed with Storage Chaise is more than just a piece of furniture; it's a versatile solution that adapts to your lifestyle. Whether you're looking to maximize your space with functional furniture or elevate your home decor with a touch of velvet luxury, this sofa bed is designed to meet your needs. Effortlessly transform the sofa into a bed within seconds. Whether accommodating overnight guests or enjoying a lazy weekend at home, this feature offers the ultimate convenience. Practicality meets style with the built-in storage chaise. Perfect for organizing living room essentials, the storage space ensures that your living area remains clutter-free while keeping your necessities within easy reach. Wrap yourself in the plush, soft touch of premium velvet, providing both an indulgent feel and a splash of opulence to your interior decor. At its core, the Essential sofa boasts a sturdy wooden frame that ensures longevity and durability. Colour: Choose from Mustard/Dark Blue/ Grey/Beige Decorations and scatter pillows are not included 👈👉 Lefty or Righty? Versatile Set has got you covered, you can put either right hand side or left hand side",
         "productType": "Sofas & Armchairs",
@@ -216,6 +216,13 @@ function App() {
       console.log("hardcode")
       filteredProducts.push(extraProduct);
     }
+
+    //Normalize ids
+    filteredProducts = filteredProducts.map((p) => ({
+      ...p,
+      id: p.id.split("/").pop(),
+    }));
+
 
     setProducts(filteredProducts);
     setPrompt('');
