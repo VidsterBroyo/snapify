@@ -15,22 +15,15 @@ export class InteractableImageGenerator extends BaseScriptComponent {
   private modelProvider: string = "OpenAI";
   @ui.separator
   @input
-  private image: Image;
-  @input
   private textDisplay: Text;
   @input
   private asrQueryController: ASRQueryController;
-  @input
-  private spinner: SceneObject;
+  
   private imageGenerator: ImageGenerator = null;
 
   onAwake() {
     this.imageGenerator = new ImageGenerator(this.modelProvider);
-    let imgMat = this.image.mainMaterial.clone();
-    this.image.clearMaterials();
-    this.image.mainMaterial = imgMat;
     this.createEvent("OnStartEvent").bind(() => {
-      this.spinner.enabled = false;
       this.asrQueryController.onQueryEvent.add((query) => {
         this.createImage(query);
       });
@@ -38,21 +31,12 @@ export class InteractableImageGenerator extends BaseScriptComponent {
   }
 
   createImage(prompt: string) {
-    this.spinner.enabled = true;
-    this.textDisplay.text = "Generating: " + prompt;
+    this.textDisplay.text = "Thinking about: " + prompt;
     this.imageGenerator
       .generateImage(prompt)
-      .then((image) => {
-        print("Image generated successfully: " + image);
-        this.textDisplay.text = prompt;
-        this.image.mainMaterial.mainPass.baseTex = image;
-        this.textDisplay.text = prompt;
-        this.spinner.enabled = false;
-      })
       .catch((error) => {
-        print("Error generating image: " + error);
-        this.textDisplay.text = "Error Generating Image";
-        this.spinner.enabled = false;
+        print("Error generating room: " + error);
+        this.textDisplay.text = "Error Generating Room";
       });
   }
 }

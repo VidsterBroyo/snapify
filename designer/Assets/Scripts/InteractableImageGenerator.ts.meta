@@ -28,9 +28,7 @@
   MaxVisibility: Editable
   ScriptInputsHidden:
     asrQueryController: false
-    image: false
     modelProvider: false
-    spinner: false
     textDisplay: false
   ScriptTypesHidden:
     {}
@@ -38,10 +36,8 @@
   DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
   DefaultScriptInputs:
     - modelProvider: OpenAI
-      image: !<reference.Image> 00000000-0000-0000-0000-000000000000
       textDisplay: !<reference.Text> 00000000-0000-0000-0000-000000000000
       asrQueryController: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
-      spinner: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
@@ -50,7 +46,5 @@
     - '// @ui {"widget":"label", "label":"Example of using generative image APIs"}'
     - '// @input string modelProvider = "OpenAI" {"widget":"combobox", "values":[{"label":"OpenAI", "value":"OpenAI"}, {"label":"Gemini", "value":"Gemini"}]}'
     - '// @ui {"widget":"separator"}'
-    - // @input Component.Image image
     - // @input Component.Text textDisplay
     - // @input AssignableType asrQueryController
-    - // @input SceneObject spinner

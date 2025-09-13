@@ -16,10 +16,8 @@ function checkUndefined(property, showIfData){
 // @ui {"widget":"label", "label":"Example of using generative image APIs"}
 // @input string modelProvider = "OpenAI" {"widget":"combobox", "values":[{"label":"OpenAI", "value":"OpenAI"}, {"label":"Gemini", "value":"Gemini"}]}
 // @ui {"widget":"separator"}
-// @input Component.Image image
 // @input Component.Text textDisplay
 // @input AssignableType asrQueryController
-// @input SceneObject spinner
 var scriptPrototype = Object.getPrototypeOf(script);
 if (!global.BaseScriptComponent){
    function BaseScriptComponent(){}
@@ -36,10 +34,8 @@ script.__initialize();
 let awakeEvent = script.createEvent("OnAwakeEvent");
 awakeEvent.bind(() => {
     checkUndefined("modelProvider", []);
-    checkUndefined("image", []);
     checkUndefined("textDisplay", []);
     checkUndefined("asrQueryController", []);
-    checkUndefined("spinner", []);
     if (script.onAwake) {
        script.onAwake();
     }

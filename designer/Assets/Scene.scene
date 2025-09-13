@@ -562,21 +562,6 @@
     - !<own> d491b31f-c593-49a0-932a-b8bbe817b1bf
   Components:
     []
-- !<SceneObject/212d4289-ecff-4ca0-b151-48c0394bf587>
-  PrefabRemaps:
-    []
-  Name: Image
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 30.000000, y: 30.000000, z: 30.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> 4f15c769-914c-4dfb-97d4-0901ec89d78a
 - !<ScriptComponent/2153b6bf-a479-4099-aade-b47df58fc906>
   PrefabRemaps:
     []
@@ -1270,22 +1255,6 @@
     []
   Components:
     - !<own> 55be292f-0363-41f1-b55c-70fcb8e4dd25
-- !<ScriptComponent/45c51641-463a-493c-aec0-de480f1cc12b>
-  PrefabRemaps:
-    []
-  Name: LoadingSpinner
-  Enabled: true
-  ScriptAsset: !<reference> 8452f399-da74-4ae7-ad18-cb07c1a9c836
-  ScriptInputsDefault:
-    {}
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      renderOrder: 2
-  ScriptTypes:
-    "":
-      {}
 - !<SceneObject/4a8fba8e-5e79-4c17-9b90-eecc02c7b7dc>
   PrefabRemaps:
     []
@@ -1358,25 +1327,6 @@
     - !<own> 25a5160c-dd09-4e72-9e5d-156e2f82f869
   Components:
     []
-- !<Image/4f15c769-914c-4dfb-97d4-0901ec89d78a>
-  PrefabRemaps:
-    []
-  Name: Image
-  Enabled: true
-  RenderOrder: 1
-  StretchMode: Fit
-  VerticalAlignment: Center
-  HorizontalAlignment: Center
-  MeshShadowMode: None
-  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-  ShadowDensity: 1.000000
-  Materials:
-    - !<reference> 0ffbbc53-be8f-4778-8301-2a121a7d3197
-  FlipX: false
-  FlipY: false
-  RotationAngle: 0
-  Pivot: {x: 0.000000, y: 0.000000}
-  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
 - !<SceneObject/5073a1e9-5105-46dd-8050-79de03e5fb39>
   PrefabRemaps:
     []
@@ -2227,21 +2177,6 @@
     - !<own> cca13a50-a590-4864-94ca-c7b3aa5951ed
   Components:
     []
-- !<SceneObject/85365650-4860-4e4b-9561-da197d9e1c40>
-  PrefabRemaps:
-    []
-  Name: LoadingSpinner
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 1.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 10.000000, y: 10.000000, z: 10.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> 45c51641-463a-493c-aec0-de480f1cc12b
 - !<SceneObject/85b990fe-4a77-4e85-b87e-28981b812dd8>
   PrefabRemaps:
     []
@@ -3065,10 +3000,8 @@
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
-    - !<own> 85365650-4860-4e4b-9561-da197d9e1c40
     - !<own> 2c8f136a-8214-42d2-8af6-a4377409b513
     - !<own> 57c7318d-0f03-4dd2-9bd7-d95f54f0bce4
-    - !<own> 212d4289-ecff-4ca0-b151-48c0394bf587
   Components:
     []
 - !<SceneObject/c1e4cdd6-40ff-4bbf-94e2-490af58b9b1d>
@@ -3623,10 +3556,8 @@
   ScriptInputs:
     "":
       modelProvider: OpenAI
-      image: !<reference.Image> 4f15c769-914c-4dfb-97d4-0901ec89d78a
       textDisplay: !<reference.Text> 1823ef19-acfa-42a6-a55a-8e3282dccb5c
       asrQueryController: !<MappingBased.AssignableType> 05b2200d-d356-4b4a-9b42-94932fb2ab3b
-      spinner: !<reference.SceneObject> 85365650-4860-4e4b-9561-da197d9e1c40
   ScriptTypes:
     "":
       {}

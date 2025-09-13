@@ -13,32 +13,19 @@ const ImageGenerator_1 = require("./ImageGenerator");
 let InteractableImageGenerator = class InteractableImageGenerator extends BaseScriptComponent {
     onAwake() {
         this.imageGenerator = new ImageGenerator_1.ImageGenerator(this.modelProvider);
-        let imgMat = this.image.mainMaterial.clone();
-        this.image.clearMaterials();
-        this.image.mainMaterial = imgMat;
         this.createEvent("OnStartEvent").bind(() => {
-            this.spinner.enabled = false;
             this.asrQueryController.onQueryEvent.add((query) => {
                 this.createImage(query);
             });
         });
     }
     createImage(prompt) {
-        this.spinner.enabled = true;
-        this.textDisplay.text = "Generating: " + prompt;
+        this.textDisplay.text = "Thinking about: " + prompt;
         this.imageGenerator
             .generateImage(prompt)
-            .then((image) => {
-            print("Image generated successfully: " + image);
-            this.textDisplay.text = prompt;
-            this.image.mainMaterial.mainPass.baseTex = image;
-            this.textDisplay.text = prompt;
-            this.spinner.enabled = false;
-        })
             .catch((error) => {
-            print("Error generating image: " + error);
-            this.textDisplay.text = "Error Generating Image";
-            this.spinner.enabled = false;
+            print("Error generating room: " + error);
+            this.textDisplay.text = "Error Generating Room";
         });
     }
     __initialize() {
