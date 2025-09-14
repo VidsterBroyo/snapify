@@ -36,33 +36,39 @@ function Tooltip({ product }) {
 
   return (
     <div
-      className="absolute bg-black -top-21 -right-28 z-10 p-2 hidden group-hover:block border border-white pointer-events-auto"
-      draggable={false}
+      className="absolute bg-black -top-21 -right-28 z-10 p-2 hidden group-hover:block border border-white pointer-events-none"
     >
-      <div
-        className="bg-black text-white text-l z-10 px-2 rounded-lg shadow-lg whitespace-nowrap"
+      {/* Re-enable pointer events for actual content */}
+      <div 
+        className="pointer-events-auto bg-black text-white text-l z-10 px-2 rounded-lg shadow-lg whitespace-nowrap" 
         draggable={false}
+        onDragOver={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+        }}
+        onDrop={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+        }}
       >
         <h1 className="text-xl">{truncatedTitle}</h1>
-      </div>
-      <h2 className="px-2" draggable={false}>
-        {`$${Number(product.variants.edges[0].node.price.amount).toFixed(2)} (CAD)`}
-      </h2>
-      <div className="flex px-2 z-10" draggable={false}>
-        <a
-          href={productUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline"
-          draggable={false}
-        >
-          Product Link
-        </a>
-        <img
-          src="https://i.postimg.cc/X7ghMy8N/image-removebg-preview.png"
-          className="h-6"
-          draggable={false}
-        />
+        <h2>{`$${Number(product.variants.edges[0].node.price.amount).toFixed(2)} (CAD)`}</h2>
+        <div className="flex items-center gap-2">
+          <a
+            href={productUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline text-blue-400 hover:text-blue-600"
+            draggable={false}
+          >
+            Product Link
+          </a>
+          <img
+            src="https://i.postimg.cc/X7ghMy8N/image-removebg-preview.png"
+            className="h-6"
+            draggable={false}
+          />
+        </div>
       </div>
     </div>
   );
@@ -156,22 +162,31 @@ function App() {
   const handleDrop = async (x, y) => {
     if (!draggingProduct) return;
 
+    // Prevent dropping onto the same spot
+    if (draggingFromGrid && draggingFromGrid.x === x && draggingFromGrid.y === y) {
+      setDraggingProduct(null);
+      setDraggingFromGrid(null);
+      return;
+    }
+
     setGrid((prev) => {
       const newGrid = prev.map((row) => [...row]);
+
+      // Prevent overwriting another product accidentally
+      if (newGrid[y][x]?.id === draggingProduct.id) return newGrid;
+
       newGrid[y][x] = draggingProduct;
 
-      // If dragging from grid, remove original
+      // Remove original if dragging from grid
       if (draggingFromGrid) {
         newGrid[draggingFromGrid.y][draggingFromGrid.x] = null;
       }
 
-      // Send the updated grid to backend
       updateBackendGrid(newGrid);
-
       return newGrid;
     });
 
-    // If dragging from inventory, remove from inventory
+    // Remove from inventory if not dragging from grid
     if (!draggingFromGrid) {
       setProducts((prev) => prev.filter((p) => p.id !== draggingProduct.id));
     }
