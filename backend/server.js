@@ -61,4 +61,14 @@ app.get('/api/get-grid', (req, res) => {
   res.json({ grid: savedGrid || [] });
 });
 
+app.post('/api/send-data', (req, res) => {
+  // Sends the Data in Batches 
+  res.send({
+    "data": [
+      {"id": 1, "column_num": 2}, 
+      {"id": 2, "column_num": 4}
+    ]
+  })
+});
+
 app.listen(4000, () => console.log('Server running on http://localhost:4000'));
