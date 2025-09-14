@@ -14,6 +14,12 @@ let ImageGenerator = class ImageGenerator extends BaseScriptComponent {
         print("running !!!");
         print("shhhh... everything is under the floor boards... it's a secret");
     }
+    moveFurniture(id, position, rotation) {
+        // get the handle for the furniture through a dictionary contained within AssetManager
+        // the furniture(s) are 3d models that are ALREADY in the scene
+        // move the furniture to the desired position
+        // rotate it to the desired rotation
+    }
     // New function: places a prefab into the scene and optionally sets position/rotation/parent.
     // The implementation attempts common prefab APIs used in Lens Studio environments and falls back safely.
     placePrefab(position, rotation) {

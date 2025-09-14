@@ -14,13 +14,21 @@ export class ImageGenerator extends BaseScriptComponent {
   onAwake() {
     print("running !!!")
     print("shhhh... everything is under the floor boards... it's a secret")
-
-        
-    
   }
 
-  
 
+  public moveFurniture (
+    id: number,
+    position: { x: number; y: number; z: number },
+    rotation: { x: number; y: number; z: number; w?: number }
+  ) {
+
+    // get the handle for the furniture through a dictionary contained within AssetManager
+        // the furniture(s) are 3d models that are ALREADY in the scene
+    // move the furniture to the desired position
+    // rotate it to the desired rotation
+      
+  }
 
 
   // New function: places a prefab into the scene and optionally sets position/rotation/parent.
