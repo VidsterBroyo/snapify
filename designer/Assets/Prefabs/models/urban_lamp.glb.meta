@@ -1,0 +1,173 @@
+- !<AssetImportMetadata/85b28b62-2d2e-495c-9581-2778d32d264b>
+  ImportedAssetIds:
+    .hidden/Material 1: !<reference> 6a8a4d6e-baa7-4506-9738-c6366f996811
+    09c1609493715f83: !<reference> 0c488772-19bd-4930-a8a2-64a82c962c62
+    4832e4ed5749227e: !<reference> 87a699b9-77f3-416e-b1f1-c2bf4f3f6f12
+    4a3e924fad0e2f27: !<reference> d00cd7a9-16c8-4018-b40b-4b480eb04757
+    579cebd423c570e1: !<reference> f45e263c-a816-4601-85f4-4eeb48fa1fa8
+    66780cf3a4dcb2b8: !<reference> 19eb0363-ed6f-4bd3-9e87-cb6c976e673b
+    730d450efa0c979d: !<reference> f72b34cc-d143-45cf-b982-9f8cf43c3f0f
+    Materials/Material 1: !<reference> be4dd2e1-5863-40a9-8c87-9b6b83287020
+    Materials/Material 1|Material 1|GraphPassInfo: !<reference> 7fc8840c-e39c-49c6-aefa-8839f6212b5b
+    Meshes/geometry_0: !<reference> ee98dc00-8d31-4156-b52e-409c9320ba77
+    Scene: !<reference> c8b608b1-06dc-4a21-8514-d31c50faaa61
+    Textures/texture: !<reference> 8adb6593-dc3b-4c54-b7f6-2d25e1a268bb
+    a1e770dd61e4adfd: !<reference> 3062f55f-9e7e-48c6-8c0f-f9461fc75fe8
+  ImporterName: GltfImporter
+  PrimaryAsset: !<reference> c8b608b1-06dc-4a21-8514-d31c50faaa61
+  PackageType: LegacyPackage
+  PackagePolicy: CanBeUnpackedTransparent
+  ExtraData:
+    {}
+  AssetDataMap:
+    Scene: !<own> d2c6b216-5aba-4515-96b5-18eb01d9f076
+  DependentFiles:
+    []
+  ImporterSettings: !<GltfImporterSettings>
+    UseLegacyImporter: false
+    WithMaterials: true
+    NamingConvention: ByCategorySanitizeV2
+    PersistentIdGenerationAlgorithm: DescriptorBased
+    AnimationCurveOptimization: true
+    CustomAnimationSamplingRate: 30.000000
+    ImportVertexColor: true
+    ImportTangents: true
+    ImportMorphTargetAnimation: true
+    ConvertMetersToCentimeters: true
+    RegenerateTangents: false
+  CompressionSettings: !<ComplexCompressionSettings>
+    Presets:
+      None Compression: !<SingleCompressionSettings>
+        CompressorName: None
+        CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+      Performance Compression: !<SingleCompressionSettings>
+        CompressorName: Performance
+        CompressionSettings: !<TextureCompressionMipmapSettings>
+          Level: Medium
+          Mipmap: false
+    ExtensionMappings:
+      mesh: None Compression
+      png: Performance Compression
+    Overrides:
+      {}
+- !<SceneObject/031a371e-439f-46ba-835e-ade17c30f08c>
+  PrefabRemaps:
+    []
+  Name: urban_lamp
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 100.000000, y: 100.000000, z: 100.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 1ba09b30-0433-4b23-961e-3c1612f813c9
+  Components:
+    []
+- !<SceneObject/1ba09b30-0433-4b23-961e-3c1612f813c9>
+  PrefabRemaps:
+    []
+  Name: Scenes
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 757af379-bd45-452c-8e48-6a2f416960eb
+  Components:
+    []
+- !<ObjectPrefab/29c64812-8303-4c08-8d8a-202557b27e51>
+  PackagePath: ""
+  objects:
+    - !<own> 031a371e-439f-46ba-835e-ade17c30f08c
+  LazyLoading: false
+  RetainAssets: true
+- !<SceneObject/342f8d8b-c4ee-418b-a5ca-936a14903bfc>
+  PrefabRemaps:
+    []
+  Name: geometry_0
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> b480e8ed-4bd3-4035-96b4-1911b654098d
+- !<SceneObject/757af379-bd45-452c-8e48-6a2f416960eb>
+  PrefabRemaps:
+    []
+  Name: Scene0
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> b30a877a-3b43-4231-a8e6-694f3e73312b
+  Components:
+    - !<own> c6a467fe-7b21-41dc-9eac-488e9a157592
+- !<SceneObject/b30a877a-3b43-4231-a8e6-694f3e73312b>
+  PrefabRemaps:
+    []
+  Name: world
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 342f8d8b-c4ee-418b-a5ca-936a14903bfc
+  Components:
+    []
+- !<RenderMeshVisual/b480e8ed-4bd3-4035-96b4-1911b654098d>
+  PrefabRemaps:
+    []
+  Name: geometry_0
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> be4dd2e1-5863-40a9-8c87-9b6b83287020
+  Mesh: !<reference> ee98dc00-8d31-4156-b52e-409c9320ba77
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<AnimationPlayer/c6a467fe-7b21-41dc-9eac-488e9a157592>
+  PrefabRemaps:
+    []
+  Name: component_1
+  Enabled: true
+  Autoplay: true
+  ClipRangeType: Frames
+  AnimationClips:
+    []
+- !<ObjectPrefabAssetData/d2c6b216-5aba-4515-96b5-18eb01d9f076>
+  SourceRemaps:
+    - 0c488772-19bd-4930-a8a2-64a82c962c62: 757af379-bd45-452c-8e48-6a2f416960eb
+    - 19eb0363-ed6f-4bd3-9e87-cb6c976e673b: 031a371e-439f-46ba-835e-ade17c30f08c
+    - 3062f55f-9e7e-48c6-8c0f-f9461fc75fe8: c6a467fe-7b21-41dc-9eac-488e9a157592
+    - 87a699b9-77f3-416e-b1f1-c2bf4f3f6f12: b30a877a-3b43-4231-a8e6-694f3e73312b
+    - c8b608b1-06dc-4a21-8514-d31c50faaa61: 29c64812-8303-4c08-8d8a-202557b27e51
+    - d00cd7a9-16c8-4018-b40b-4b480eb04757: 1ba09b30-0433-4b23-961e-3c1612f813c9
+    - f45e263c-a816-4601-85f4-4eeb48fa1fa8: b480e8ed-4bd3-4035-96b4-1911b654098d
+    - f72b34cc-d143-45cf-b982-9f8cf43c3f0f: 342f8d8b-c4ee-418b-a5ca-936a14903bfc
+  SourceState: !<own> 29c64812-8303-4c08-8d8a-202557b27e51
