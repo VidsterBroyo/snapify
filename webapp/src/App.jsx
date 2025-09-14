@@ -3,22 +3,41 @@ import axios from 'axios';
 import './App.css';
 
 function Furniture({ product, onDragStart }) {
+  const productUrl = `https://shop.app/products/${product.handle || product.id}`;
+
   return (
     <div
       draggable
       onDragStart={(e) => {
         onDragStart(product);
-        e.dataTransfer.effectAllowed = 'move';
-        e.dataTransfer.setData('text/plain', product.id);
+        e.dataTransfer.effectAllowed = "move";
+        e.dataTransfer.setData("text/plain", product.id);
       }}
-      className="w-24 flex flex-col items-center cursor-grab"
+      className="w-24 relative cursor-grab group overflow-visible"
     >
+      {/* Image */}
       <img
         src={product.images.edges[0]?.node.url}
         alt={product.title}
         className="w-full h-24 object-cover rounded-lg"
       />
-      <p className="text-center mt-1 text-white text-sm">{product.title}</p>
+
+      {/* Hover tooltip */}
+      <div className="absolute bg-black -top-15 -right-28 z-10 p-2 hidden group-hover:block border border-white">
+        <div className="bg-black text-white text-l px-2 rounded-lg shadow-lg whitespace-nowrap">
+          <p>
+            {product.title}
+          </p>
+        </div>
+        <div className='flex px-2'>
+          <a href={productUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline">Product Link
+          </a>
+          <img src="https://i.postimg.cc/X7ghMy8N/image-removebg-preview.png" className="h-6"></img>
+        </div>
+      </div>
     </div>
   );
 }
@@ -231,9 +250,10 @@ function App() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-8 bg-gradient-to-br from-neutral-900 to-neutral-800 [background-image:radial-gradient(circle_at_top_left,#1e1e1e,transparent_40%)]">
-      <div className="max-w-3xl w-full flex flex-col items-center gap-12">
+      <div className="max-w-3xl w-full flex flex-col items-center gap-6">
+        <img src="https://i.postimg.cc/ncM7xyKs/image-removebg-preview-2.png" className="h-32"></img>
         <div className="text-center">
-          <h1 className="text-7xl font-semibold mb-2 bg-gradient-to-br from-[#2563EB] via-[#3B82F6] to-[#93C5FD] bg-clip-text text-transparent">Snapify</h1>
+          <h1 className="inline-block leading-tight text-7xl font-semibold mb-2 bg-gradient-to-br from-[#2563EB] via-[#3B82F6] to-[#93C5FD] bg-clip-text text-transparent">Snapify</h1>
           <p className="mt-4 text-2xl text-chat-placeholder font-normal">How can I help you today?</p>
         </div>
 
@@ -270,6 +290,7 @@ function App() {
       </div>
 
       {/* Inventory */}
+      <h1 className={`mb-0 text-2xl font-bold ${products.length == 0 ? 'hidden' : 'visible'}`}>Inventory</h1>
       <div className="w-8/10 flex flex-wrap gap-2 justify-center mt-4">
         {products.map((product) => (
           <Furniture key={product.id} product={product} onDragStart={handleDragStart} />
@@ -277,7 +298,8 @@ function App() {
       </div>
 
       {/* Room Grid */}
-      <div className="w-full max-w-4xl grid grid-cols-8 gap-1 mt-8 p-1 border-2 border-white rounded-xl">
+      <h1 className="mb-0 text-2xl font-bold">Room Layout</h1>
+      <div className="w-full max-w-xl grid grid-cols-8 gap-1 mt-3 p-1 border-2 border-white rounded-xl">
         {grid.map((row, y) =>
           row.map((slot, x) => (
             <GridSlot

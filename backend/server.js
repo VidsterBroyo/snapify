@@ -28,10 +28,10 @@ app.post('/api/recommend', async (req, res) => {
   try {
     // Send request to Gemini
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
+      model: 'gemini-2.5-flash-lite',
       contents: [
         "You are a sophisticated algorithm that recommends furniture. You are seeking the best fit but also want to ensure a good variety.",
-        `Given these products:\n${productContext}\nUser desires: "${prompt}"\nReturn ONLY the top 10 product IDs in a comma-separated list.`
+        `Given these products:\n${productContext}\nUser desires: "${prompt}"\nReturn ONLY the top 15 product IDs in a comma-separated list.`
       ],
     });
 
