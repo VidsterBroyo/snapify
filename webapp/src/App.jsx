@@ -30,14 +30,19 @@ function Tooltip({ product }) {
 
   // Truncate title if too long
   const truncatedTitle =
-    product.title.length > 30 ? product.title.slice(0, 30) + "..." : product.title;
+    product.title.length > 30
+      ? product.title.slice(0, 30) + "..."
+      : product.title;
 
   return (
     <div
       className="absolute bg-black -top-21 -right-28 z-10 p-2 hidden group-hover:block border border-white pointer-events-auto"
       draggable={false}
     >
-      <div className="bg-black text-white text-l z-10 px-2 rounded-lg shadow-lg whitespace-nowrap" draggable={false}>
+      <div
+        className="bg-black text-white text-l z-10 px-2 rounded-lg shadow-lg whitespace-nowrap"
+        draggable={false}
+      >
         <h1 className="text-xl">{truncatedTitle}</h1>
       </div>
       <h2 className="px-2" draggable={false}>
@@ -66,7 +71,15 @@ function Tooltip({ product }) {
 function Furniture({ product, onDragStart }) {
   const [hovered, setHovered] = useState(false);
   return (
-    <div className={`w-20 relative group overflow-visible hover:border hover:rounded-xl hover:border-4 hover:border-green-200`} onMouseOver={() => {setHovered(true)}} onMouseLeave={() => {setHovered(false)}}>
+    <div
+      className={`w-20 relative group overflow-visible hover:border hover:rounded-xl hover:border-4 hover:border-green-200`}
+      onMouseOver={() => {
+        setHovered(true);
+      }}
+      onMouseLeave={() => {
+        setHovered(false);
+      }}
+    >
       <img
         src={product.images.edges[0]?.node.url}
         alt={product.title}
@@ -89,7 +102,9 @@ function GridSlot({ x, y, furniture, onDrop, onDragStart, isCenter }) {
       } relative ${isCenter ? "pointer-events-none" : ""}`}
     >
       {isCenter && (
-        <span className="text-white font-bold text-lg absolute pointer-events-none select-none">You</span>
+        <span className="text-white font-bold text-lg absolute pointer-events-none select-none">
+          You
+        </span>
       )}
       {furniture && !isCenter && (
         <div
@@ -168,14 +183,12 @@ function App() {
   const updateBackendGrid = async (gridState) => {
     try {
       // Transform grid into the format your teammate wants
-      const gridProducts = {};
-      let index = 0;
+      const gridProducts = [];
 
       gridState.forEach((row, y) => {
         row.forEach((cell, x) => {
           if (cell) {
-            gridProducts[index] = [cell.id, x, y];
-            index++;
+            gridProducts.push({ shop_id: cell.id, x: x, y: y });
           }
         });
       });
@@ -749,9 +762,11 @@ function App() {
           className="h-32"
         ></img>
         <div className="text-center">
-          <h1 className="text-7xl font-semibold mb-2 mt-[-6px]
+          <h1
+            className="text-7xl font-semibold mb-2 mt-[-6px]
             bg-gradient-to-r from-green-400 to-yellow-400
-            bg-clip-text text-transparent leading-[1.4]">
+            bg-clip-text text-transparent leading-[1.4]"
+          >
             Snapify
           </h1>
           <p className="mt-4 text-2xl text-chat-placeholder font-normal relative after:content-['|'] after:ml-1 after:animate-blink typing-animation">
@@ -818,67 +833,65 @@ function App() {
       </div>
 
       <div className="w-full flex mt-12">
-          <div className="w-47/100 flex flex-col items-center">
-            {/* Inventory */}
-            <h1
-              className={`mb-0 text-2xl font-bold`}
-            >
-              Inventory
-            </h1>
-            <div
-              className="w-7/10 flex flex-wrap gap-2 content-center justify-center min-h-24 bg-[#272727] mt-2"
-              onDragOver={(e) => e.preventDefault()} // allow dropping
-              onDrop={() => {
-                if (!draggingProduct) return;
+        <div className="w-47/100 flex flex-col items-center">
+          {/* Inventory */}
+          <h1 className={`mb-0 text-2xl font-bold`}>Inventory</h1>
+          <div
+            className="w-7/10 flex flex-wrap gap-2 content-center justify-center min-h-24 bg-[#272727] mt-2"
+            onDragOver={(e) => e.preventDefault()} // allow dropping
+            onDrop={() => {
+              if (!draggingProduct) return;
 
-                // Remove from grid if dragging from there
-                if (draggingFromGrid) {
-                  setGrid((prev) => {
-                    const newGrid = prev.map((row) => [...row]);
-                    newGrid[draggingFromGrid.y][draggingFromGrid.x] = null;
-                    updateBackendGrid(newGrid);
-                    return newGrid;
-                  });
-                  setDraggingFromGrid(null);
-                }
+              // Remove from grid if dragging from there
+              if (draggingFromGrid) {
+                setGrid((prev) => {
+                  const newGrid = prev.map((row) => [...row]);
+                  newGrid[draggingFromGrid.y][draggingFromGrid.x] = null;
+                  updateBackendGrid(newGrid);
+                  return newGrid;
+                });
+                setDraggingFromGrid(null);
+              }
 
-                // Add back to inventory
-                setProducts((prev) => [...prev, draggingProduct]);
-                setDraggingProduct(null);
-              }}
-            >
-              {products.length > 0 ? (
-                products.map((product) => (
-                  <Furniture key={product.id} product={product} onDragStart={handleDragStart} />
-                ))
-              ) : (
-                <div className="text-[#AEAEAE]">Empty Inventory</div>
-              )}
-            </div>
+              // Add back to inventory
+              setProducts((prev) => [...prev, draggingProduct]);
+              setDraggingProduct(null);
+            }}
+          >
+            {products.length > 0 ? (
+              products.map((product) => (
+                <Furniture
+                  key={product.id}
+                  product={product}
+                  onDragStart={handleDragStart}
+                />
+              ))
+            ) : (
+              <div className="text-[#AEAEAE]">Empty Inventory</div>
+            )}
           </div>
-        
-          <div className="w-53/100 flex flex-col items-center">
-            {/* Room Grid */}
-            <h1 className="mb-0 text-2xl font-bold">Room Layout</h1>
-            <div className="w-full max-w-xl grid grid-cols-7 gap-1 mt-3 p-1 border-4 border-[#787878] rounded-xl">
-              {grid.map((row, y) =>
-                row.map((slot, x) => (
-                  <GridSlot
-                    key={`${x}-${y}`}
-                    x={x}
-                    y={y}
-                    furniture={slot}
-                    onDrop={handleDrop}
-                    onDragStart={handleDragStart}
-                    isCenter={x === 3 && y === 3} // 0-based center
-                  />
-                ))
-              )}
-            </div>
+        </div>
+
+        <div className="w-53/100 flex flex-col items-center">
+          {/* Room Grid */}
+          <h1 className="mb-0 text-2xl font-bold">Room Layout</h1>
+          <div className="w-full max-w-xl grid grid-cols-7 gap-1 mt-3 p-1 border-4 border-[#787878] rounded-xl">
+            {grid.map((row, y) =>
+              row.map((slot, x) => (
+                <GridSlot
+                  key={`${x}-${y}`}
+                  x={x}
+                  y={y}
+                  furniture={slot}
+                  onDrop={handleDrop}
+                  onDragStart={handleDragStart}
+                  isCenter={x === 3 && y === 3} // 0-based center
+                />
+              ))
+            )}
           </div>
-          
+        </div>
       </div>
-  
     </div>
   );
 }
