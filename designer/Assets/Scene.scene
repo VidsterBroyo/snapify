@@ -7,6 +7,8 @@
     - !<own> 867a6806-8d0e-4a93-8b86-ef91522c708d
     - !<own> e98b2a4f-f300-4094-a125-464834a4be87
     - !<own> 362d712d-3aa2-470c-8b9d-9b6467c32954
+    - !<own> bcde0df9-ab29-4d18-ac8c-45868e20be04
+    - !<own> 3bf6c906-691a-48d7-94e5-2eab92b041f8
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
       []
@@ -1495,6 +1497,21 @@
   ScriptTypes:
     "":
       {}
+- !<SceneObject/3bf6c906-691a-48d7-94e5-2eab92b041f8>
+  PrefabRemaps:
+    []
+  Name: SpawnItem
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> f5ef92a5-ced9-408c-a1b6-8e1f7b9e11c1
 - !<SceneObject/3d7828ee-2891-4454-9f06-7d3aa618c06b>
   PrefabRemaps:
     []
@@ -2750,6 +2767,37 @@
     CapitalizationOverride: None
   DepthTest: true
   TwoSided: false
+- !<ScriptComponent/629ffe3d-f0dc-477a-be22-febff4cd69b7>
+  PrefabRemaps:
+    []
+  Name: AssetManager
+  Enabled: true
+  ScriptAsset: !<reference> dec4a47d-d0c8-4f7e-9afa-fbc0412f39a2
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      prefabs: !<reference.ObjectPrefab[]>
+        - !<reference> 086e8481-adf4-4923-acf8-f2fb88adc46d
+        - !<reference> ee306729-e41e-47e3-a064-5c650a2dfb5c
+        - !<reference> a9179cfd-9063-4040-b5c5-aadac7071f06
+        - !<reference> 7ba334c1-af21-434d-9bf8-919948a77375
+        - !<reference> a77a002b-e8f3-406d-b78b-fac075428e86
+        - !<reference> f5ed462c-96ea-432a-80e1-9c7ecaeefc9a
+        - !<reference> 5dbfc40f-da56-4b93-9846-8e4b6eb959db
+        - !<reference> 3d5ecb30-44d8-4c75-be8d-2e4d59543818
+        - !<reference> 98621a56-ba48-4bd2-b0db-afeb25ec11b8
+        - !<reference> 9573aecf-8dec-4ec2-8fe3-32f61f911044
+        - !<reference> ff09ef77-ce93-4e83-9daf-1e0879b67f93
+        - !<reference> 98e955fb-4ce7-48d6-bdfd-d21b37b9d9d5
+        - !<reference> a0e41943-2986-48a3-8fa8-5f7ca547c296
+        - !<reference> 3e995b93-65f6-4013-a071-f544f389d7b6
+        - !<reference> f3059d9f-90d0-402b-aaf6-eca860d52b0a
+  ScriptTypes:
+    "":
+      {}
 - !<ScriptComponent/6361bf74-2191-496a-afb9-dd4820dbd2ac>
   PrefabRemaps:
     []
@@ -4668,6 +4716,21 @@
     - !<own> b87e31e3-28fe-4073-941b-1fc02335e10c
   Components:
     []
+- !<SceneObject/bcde0df9-ab29-4d18-ac8c-45868e20be04>
+  PrefabRemaps:
+    []
+  Name: AssetManager
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 629ffe3d-f0dc-477a-be22-febff4cd69b7
 - !<SceneObject/bced2f07-b559-4972-a7ab-7c82fb7d52a7>
   PrefabRemaps:
     []
@@ -6090,6 +6153,22 @@
       customFunctionForOnButtonPinched: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
       onButtonPinchedFunctionNames: !<string[]>
         []
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/f5ef92a5-ced9-408c-a1b6-8e1f7b9e11c1>
+  PrefabRemaps:
+    []
+  Name: SpawnItem
+  Enabled: true
+  ScriptAsset: !<reference> 1ace8225-b38c-45e5-843c-f05e622419db
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
   ScriptTypes:
     "":
       {}

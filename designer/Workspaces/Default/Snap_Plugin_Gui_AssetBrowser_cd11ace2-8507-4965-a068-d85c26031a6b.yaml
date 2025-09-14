@@ -1,8 +1,9 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 714
+    size: 765
     values:
+      - ""
       - LSTween.lspkg
       - LSTween.lspkg/Examples
       - LSTween.lspkg/Examples/Assets
@@ -30,6 +31,55 @@ CollapsedEntities:
       - LSTween.lspkg/package.native
       - Prefabs
       - Prefabs/Snap3DInteractable.prefab
+      - Prefabs/models/cozy_cabinet.glb
+      - Prefabs/models/cozy_cabinet.glb/.hidden
+      - Prefabs/models/cozy_cabinet.glb/Materials
+      - Prefabs/models/cozy_cabinet.glb/Meshes
+      - Prefabs/models/cozy_cabinet.glb/Textures
+      - Prefabs/models/cozy_sofa.glb
+      - Prefabs/models/cozy_sofa.glb/.hidden
+      - Prefabs/models/cozy_sofa.glb/Materials
+      - Prefabs/models/cozy_sofa.glb/Meshes
+      - Prefabs/models/cozy_sofa.glb/Textures
+      - Prefabs/models/gothic_chair.glb
+      - Prefabs/models/gothic_lamp.glb
+      - Prefabs/models/gothic_table.glb
+      - Prefabs/models/modern_chair.glb
+      - Prefabs/models/modern_lamp.glb
+      - Prefabs/models/modern_table.glb
+      - Prefabs/models/nature_chair.glb
+      - Prefabs/models/nature_table.glb
+      - Prefabs/models/nature_tree.glb
+      - Prefabs/models/urban_chair.glb
+      - Prefabs/models/urban_chair.glb/.hidden
+      - Prefabs/models/urban_chair.glb/.hidden/Material 1
+      - Prefabs/models/urban_chair.glb/Materials
+      - Prefabs/models/urban_chair.glb/Materials/Material 1
+      - Prefabs/models/urban_chair.glb/Meshes
+      - Prefabs/models/urban_chair.glb/Meshes/geometry_0
+      - Prefabs/models/urban_chair.glb/Textures
+      - Prefabs/models/urban_chair.glb/Textures/texture
+      - Prefabs/models/urban_chair.glb/urban_chair
+      - Prefabs/models/urban_lamp.glb
+      - Prefabs/models/urban_lamp.glb/.hidden
+      - Prefabs/models/urban_lamp.glb/.hidden/Material 1
+      - Prefabs/models/urban_lamp.glb/Materials
+      - Prefabs/models/urban_lamp.glb/Materials/Material 1
+      - Prefabs/models/urban_lamp.glb/Meshes
+      - Prefabs/models/urban_lamp.glb/Meshes/geometry_0
+      - Prefabs/models/urban_lamp.glb/Textures
+      - Prefabs/models/urban_lamp.glb/Textures/texture
+      - Prefabs/models/urban_lamp.glb/urban_lamp
+      - Prefabs/models/urban_table.glb
+      - Prefabs/models/urban_table.glb/.hidden
+      - Prefabs/models/urban_table.glb/.hidden/Material 1
+      - Prefabs/models/urban_table.glb/Materials
+      - Prefabs/models/urban_table.glb/Materials/Material 1
+      - Prefabs/models/urban_table.glb/Meshes
+      - Prefabs/models/urban_table.glb/Meshes/geometry_0
+      - Prefabs/models/urban_table.glb/Textures
+      - Prefabs/models/urban_table.glb/Textures/texture
+      - Prefabs/models/urban_table.glb/urban_table
       - Remote Service Gateway.lspkg/Helpers
       - Remote Service Gateway.lspkg/Helpers/AudioProcessor.ts
       - Remote Service Gateway.lspkg/Helpers/DynamicAudioOutput.ts
@@ -92,10 +142,10 @@ CollapsedEntities:
       - Remote Service Gateway.lspkg/package.native
       - Render
       - Scene.scene
-      - Scripts
       - Scripts/AIAssistantUIBridge.ts
       - Scripts/APIKeyHint.ts
       - Scripts/ASRQueryController.ts
+      - Scripts/AssetManager.ts
       - Scripts/ImageGenerator.ts
       - Scripts/InteractableImageGenerator.ts
       - Scripts/InteractableSnap3DGenerator.ts
@@ -103,6 +153,7 @@ CollapsedEntities:
       - Scripts/OpenAIAssistant.ts
       - Scripts/Snap3DInteractable.ts
       - Scripts/Snap3DInteractableFactory.ts
+      - Scripts/SpawnItem.ts
       - Scripts/SphereController.ts
       - SpectaclesInteractionKit.lspkg
       - SpectaclesInteractionKit.lspkg/Assets
