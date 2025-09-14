@@ -2,54 +2,69 @@ import { useState } from "react";
 import axios from "axios";
 import "./App.css";
 
+function dragOverride({product, onDragStart, x = null, y = null}) {
+  return (e) => {
+            onDragStart(product, x, y);
+            e.dataTransfer.effectAllowed = "move";
+            e.dataTransfer.setData("text/plain", product.id);
+
+            // Create a temporary drag image
+            const dragImg = new Image();
+            dragImg.src = product.images.edges[0]?.node.url;
+            dragImg.width = 64;
+            dragImg.height = 64;
+
+            dragImg.onload = () => {
+              e.dataTransfer.setDragImage(dragImg, dragImg.width / 2, dragImg.height / 2);
+            };
+          }
+}
+
 function Tooltip({ product }) {
+  const [isDragging, setIsDragging] = useState(false);
   const productUrl = `https://shop.app/products/${product.handle || product.id}`;
   return (
-    <>
-      {/* Hover tooltip */}
-      <div className="absolute bg-black -top-15 -right-28 z-10 p-2 hidden group-hover:block border border-white">
-        <div className="bg-black text-white text-l px-2 rounded-lg shadow-lg whitespace-nowrap">
-          <h1 className="text-xl">{product.title}</h1>
-        </div>
-        <h2 className="px-2">{`$${Number(product.variants.edges[0].node.price.amount).toFixed(2)}`}</h2>
-        <div className="flex px-2">
-          <a
-            href={productUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline"
-          >
-            Product Link
-          </a>
-          <img
-            src="https://i.postimg.cc/X7ghMy8N/image-removebg-preview.png"
-            className="h-6"
-          ></img>
-        </div>
+    <div
+      className="absolute bg-black -top-21 -right-28 z-10 p-2 hidden group-hover:block border border-white pointer-events-auto"
+      draggable={false}
+    >
+      <div className="bg-black text-white text-l px-2 rounded-lg shadow-lg whitespace-nowrap" draggable={false}>
+        <h1 className="text-xl">{product.title}</h1>
       </div>
-    </>
+      <h2 className="px-2" draggable={false}>
+        {`$${Number(product.variants.edges[0].node.price.amount).toFixed(2)}`}
+      </h2>
+      <div className="flex px-2" draggable={false}>
+        <a
+          href={productUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline"
+          draggable={false}
+        >
+          Product Link
+        </a>
+        <img
+          src="https://i.postimg.cc/X7ghMy8N/image-removebg-preview.png"
+          className="h-6"
+          draggable={false}
+        />
+      </div>
+    </div>
   );
 }
 
 function Furniture({ product, onDragStart }) {
   return (
-    <div
-      draggable
-      onDragStart={(e) => {
-        onDragStart(product);
-        e.dataTransfer.effectAllowed = "move";
-        e.dataTransfer.setData("text/plain", product.id);
-      }}
-      className="w-24 relative cursor-grab group overflow-visible"
-    >
-      {/* Image */}
+    <div className="w-24 relative group overflow-visible">
       <img
         src={product.images.edges[0]?.node.url}
         alt={product.title}
-        className="w-full h-24 object-cover rounded-lg"
+        className="w-full h-24 object-cover rounded-lg cursor-grab"
+        draggable
+        onDragStart={dragOverride({ product, onDragStart })}
       />
-
-      <Tooltip product={product}></Tooltip>
+      <Tooltip product={product} />
     </div>
   );
 }
@@ -66,11 +81,7 @@ function GridSlot({ x, y, furniture, onDrop, onDragStart }) {
       {furniture && (
         <div
           draggable
-          onDragStart={(e) => {
-            onDragStart(furniture, x, y);
-            e.dataTransfer.effectAllowed = "move";
-            e.dataTransfer.setData("text/plain", furniture.id);
-          }}
+          onDragStart={dragOverride({product : furniture, onDragStart, x, y})}
           className="w-full h-full relative group cursor-grab"
         >
           <img
