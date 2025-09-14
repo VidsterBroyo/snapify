@@ -203,7 +203,7 @@ function App() {
       gridState.forEach((row, y) => {
         row.forEach((cell, x) => {
           if (cell) {
-            gridProducts.push({ shop_id: cell.id, x: x, y: y });
+            gridProducts.push([cell.id, x, y]);
           }
         });
       });
