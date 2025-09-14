@@ -167,15 +167,23 @@ function App() {
 
   const updateBackendGrid = async (gridState) => {
     try {
-      // Transform the grid into a serializable format
-      const serializedGrid = gridState.map((row) =>
-        row.map((cell) => (cell ? { id: cell.id, title: cell.title } : null))
-      );
+      // Transform grid into the format your teammate wants
+      const gridProducts = {};
+      let index = 0;
+
+      gridState.forEach((row, y) => {
+        row.forEach((cell, x) => {
+          if (cell) {
+            gridProducts[index] = [cell.id, x, y];
+            index++;
+          }
+        });
+      });
 
       await axios.post("http://localhost:4000/api/update-grid", {
-        grid: serializedGrid,
+        grid: gridProducts,
       });
-      console.log("Backend grid updated!");
+      console.log("Backend grid updated!", gridProducts);
     } catch (err) {
       console.error("Failed to update backend grid:", err);
     }
