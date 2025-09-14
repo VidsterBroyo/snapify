@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 765
+    size: 759
     values:
       - ""
       - LSTween.lspkg
@@ -142,18 +142,12 @@ CollapsedEntities:
       - Remote Service Gateway.lspkg/package.native
       - Render
       - Scene.scene
-      - Scripts/AIAssistantUIBridge.ts
       - Scripts/APIKeyHint.ts
       - Scripts/ASRQueryController.ts
-      - Scripts/AssetManager.ts
       - Scripts/ImageGenerator.ts
-      - Scripts/InteractableImageGenerator.ts
-      - Scripts/InteractableSnap3DGenerator.ts
       - Scripts/InternetAvailabilityPopUp.ts
       - Scripts/OpenAIAssistant.ts
-      - Scripts/Snap3DInteractable.ts
-      - Scripts/Snap3DInteractableFactory.ts
-      - Scripts/SpawnItem.ts
+      - Scripts/Polling.js
       - Scripts/SphereController.ts
       - SpectaclesInteractionKit.lspkg
       - SpectaclesInteractionKit.lspkg/Assets

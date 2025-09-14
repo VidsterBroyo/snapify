@@ -1,18 +1,18 @@
 - !<AssetImportMetadata/208baf41-71e4-4b37-ab29-0f77ee74fd39>
   ImportedAssetIds:
     .hidden/Material 1: !<reference> ec477862-82b6-4d9e-97c4-20c5dd86c4d8
-    09c1609493715f83: !<reference> ceb6673e-f5f6-4a94-a2b6-f25e81d30148
-    4832e4ed5749227e: !<reference> 9a76d8bf-1610-47f6-8f9b-fa2ccd406f38
-    4a3e924fad0e2f27: !<reference> 947e2811-b658-47fe-acc9-5438c78c341d
-    579cebd423c570e1: !<reference> cb044515-971f-45f0-a2ad-194b40c91b02
-    66780cf3a4dcb2b8: !<reference> 23941b8f-828a-4a78-b809-288ef196c42b
-    730d450efa0c979d: !<reference> d49c162f-728e-4618-b3b5-dcadda523fe2
+    04691d0836e62356: !<reference> e3441eae-6b5a-46dc-bdf2-d1d7fd49b63a
+    3655296a7dafbeb2: !<reference> 0b10a2ff-dfa8-41f7-942e-7adfeb3c172b
+    624f6792bd6e379e: !<reference> e3d71dbf-ef94-4700-a137-bcb8f3caf744
+    7a0dd5cd69df73fa: !<reference> 94b0814b-70d2-4a8e-a4e2-d3f496bcbd63
+    943b163b6a2b8048: !<reference> b3b7b736-6bfd-4368-8646-1b9a955ddb5f
     Materials/Material 1: !<reference> b0a77b49-1e16-4119-8b46-9171946994af
     Materials/Material 1|Material 1|GraphPassInfo: !<reference> eb354c36-0149-4c7c-87fd-2ceaea59ce3c
     Meshes/geometry_0: !<reference> f9024390-8537-4747-a532-b5b5cf887101
     Scene: !<reference> 3d5ecb30-44d8-4c75-be8d-2e4d59543818
     Textures/texture: !<reference> f7e01b8f-f1e7-425b-b673-3a3731d91724
-    a1e770dd61e4adfd: !<reference> 8dad3346-fc5b-4636-9b3c-26a8e5f69168
+    c75909bf8dbe3f4e: !<reference> d6cfbd6e-07d1-443e-9a8b-73f2505a701d
+    f9354d858a1f9e54: !<reference> 3fdab11f-48ae-48d6-b5b4-e8afc9289a93
   ImporterName: GltfImporter
   PrimaryAsset: !<reference> 3d5ecb30-44d8-4c75-be8d-2e4d59543818
   PackageType: LegacyPackage
