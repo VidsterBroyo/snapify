@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 805
+    size: 894
     values:
       - ""
       - Base.png
@@ -106,6 +106,66 @@ CollapsedEntities:
       - Prefabs/cozy_sofa/Textures/texture.png
       - Prefabs/cozy_sofa/Textures/texture.prefab
       - Prefabs/cozy_sofa/cozy_sofa.prefab
+      - Prefabs/cozy_table
+      - Prefabs/cozy_table/.hidden
+      - Prefabs/cozy_table/.hidden/Material 1.ss_graph
+      - Prefabs/cozy_table/Materials
+      - Prefabs/cozy_table/Materials/Material 1.mat
+      - Prefabs/cozy_table/Meshes
+      - Prefabs/cozy_table/Meshes/geometry_0.mesh
+      - Prefabs/cozy_table/Textures
+      - Prefabs/cozy_table/Textures/texture.png
+      - Prefabs/cozy_table/cozy_table.prefab
+      - Prefabs/gothic_chair
+      - Prefabs/gothic_chair/.hidden
+      - Prefabs/gothic_chair/.hidden/Material 1.ss_graph
+      - Prefabs/gothic_chair/Materials
+      - Prefabs/gothic_chair/Materials/Material 1.mat
+      - Prefabs/gothic_chair/Meshes
+      - Prefabs/gothic_chair/Meshes/geometry_0.mesh
+      - Prefabs/gothic_chair/Textures
+      - Prefabs/gothic_chair/Textures/texture.png
+      - Prefabs/gothic_chair/gothic_chair.prefab
+      - Prefabs/gothic_lamp
+      - Prefabs/gothic_lamp/.hidden
+      - Prefabs/gothic_lamp/.hidden/Material 1.ss_graph
+      - Prefabs/gothic_lamp/Materials
+      - Prefabs/gothic_lamp/Materials/Material 1.mat
+      - Prefabs/gothic_lamp/Meshes
+      - Prefabs/gothic_lamp/Meshes/geometry_0.mesh
+      - Prefabs/gothic_lamp/Textures
+      - Prefabs/gothic_lamp/Textures/texture.png
+      - Prefabs/gothic_lamp/gothic_lamp.prefab
+      - Prefabs/gothic_table
+      - Prefabs/gothic_table/.hidden
+      - Prefabs/gothic_table/.hidden/Material 1.ss_graph
+      - Prefabs/gothic_table/Materials
+      - Prefabs/gothic_table/Materials/Material 1.mat
+      - Prefabs/gothic_table/Meshes
+      - Prefabs/gothic_table/Meshes/geometry_0.mesh
+      - Prefabs/gothic_table/Textures
+      - Prefabs/gothic_table/Textures/texture.png
+      - Prefabs/gothic_table/gothic_table.prefab
+      - Prefabs/modern_chair
+      - Prefabs/modern_chair/.hidden
+      - Prefabs/modern_chair/.hidden/Material 1.ss_graph
+      - Prefabs/modern_chair/Materials
+      - Prefabs/modern_chair/Materials/Material 1.mat
+      - Prefabs/modern_chair/Meshes
+      - Prefabs/modern_chair/Meshes/geometry_0.mesh
+      - Prefabs/modern_chair/Textures
+      - Prefabs/modern_chair/Textures/texture.png
+      - Prefabs/modern_chair/modern_chair.prefab
+      - Prefabs/modern_lamp
+      - Prefabs/modern_lamp/.hidden
+      - Prefabs/modern_lamp/.hidden/Material 1.ss_graph
+      - Prefabs/modern_lamp/Materials
+      - Prefabs/modern_lamp/Materials/Material 1.mat
+      - Prefabs/modern_lamp/Meshes
+      - Prefabs/modern_lamp/Meshes/geometry_0.mesh
+      - Prefabs/modern_lamp/Textures
+      - Prefabs/modern_lamp/Textures/texture.png
+      - Prefabs/modern_lamp/modern_lamp.prefab
       - Prefabs/modern_table
       - Prefabs/modern_table/.hidden
       - Prefabs/modern_table/.hidden/Material 1.ss_graph
@@ -113,9 +173,38 @@ CollapsedEntities:
       - Prefabs/modern_table/Materials/Material 1.mat
       - Prefabs/modern_table/Meshes
       - Prefabs/modern_table/Meshes/geometry_0.mesh
-      - Prefabs/modern_table/Textures/ImageMaterial.mat
+      - Prefabs/modern_table/Textures
       - Prefabs/modern_table/Textures/texture.png
       - Prefabs/modern_table/modern_table.prefab
+      - Prefabs/nature_chair
+      - Prefabs/nature_chair/.hidden
+      - Prefabs/nature_chair/.hidden/Material 1.ss_graph
+      - Prefabs/nature_chair/Materials
+      - Prefabs/nature_chair/Materials/Material 1.mat
+      - Prefabs/nature_chair/Meshes
+      - Prefabs/nature_chair/Meshes/geometry_0.mesh
+      - Prefabs/nature_chair/Textures
+      - Prefabs/nature_chair/Textures/texture.png
+      - Prefabs/nature_chair/nature_chair.prefab
+      - Prefabs/nature_table
+      - Prefabs/nature_table/.hidden
+      - Prefabs/nature_table/.hidden/Material 1.ss_graph
+      - Prefabs/nature_table/Materials
+      - Prefabs/nature_table/Materials/Material 1.mat
+      - Prefabs/nature_table/Meshes
+      - Prefabs/nature_table/Meshes/geometry_0.mesh
+      - Prefabs/nature_table/Textures
+      - Prefabs/nature_table/Textures/texture.png
+      - Prefabs/nature_table/nature_table.prefab
+      - Prefabs/nature_tree/.hidden
+      - Prefabs/nature_tree/.hidden/Material 1.ss_graph
+      - Prefabs/nature_tree/Materials
+      - Prefabs/nature_tree/Materials/Material 1.mat
+      - Prefabs/nature_tree/Meshes
+      - Prefabs/nature_tree/Meshes/geometry_0.mesh
+      - Prefabs/nature_tree/Textures
+      - Prefabs/nature_tree/Textures/texture.png
+      - Prefabs/nature_tree/nature_tree.prefab
       - Remote Service Gateway.lspkg
       - Remote Service Gateway.lspkg/Helpers
       - Remote Service Gateway.lspkg/Helpers/AudioProcessor.ts

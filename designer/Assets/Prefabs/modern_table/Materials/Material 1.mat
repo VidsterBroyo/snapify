@@ -1,8 +1,8 @@
-- !<Material/4dab08bd-9bbe-45bc-aa84-392380bd7cc6>
+- !<Material/dc031a50-067c-48bd-92e7-c75762db8769>
   PackagePath: ""
   PassesInfo:
-    - !<own> 6b467a1e-0aa1-4a14-8323-0ba05c79c07c
-- !<PassInfo/6b467a1e-0aa1-4a14-8323-0ba05c79c07c>
+    - !<own> fc47e37b-7b07-4dc1-9ec9-56e251f0d9e3
+- !<PassInfo/fc47e37b-7b07-4dc1-9ec9-56e251f0d9e3>
   CachedProperties:
     - Port_AO_N405:
         typeIdx: 4
@@ -120,7 +120,7 @@
     baseColorTexture:
       typeIdx: 9
       value:
-        id: 54d57bcc-a7c1-4018-8a66-8c4f3252703e
+        id: 7469d862-4de5-4b06-be11-b2171b88d14b
         sampler:
           filteringMode: Trilinear
           wrapModeU: Repeat
@@ -138,4 +138,4 @@
     roughnessFactor:
       typeIdx: 1
       value: 1.000000
-  Pass: !<reference> 6d0e2df4-1fe6-41e4-bb81-58c4341ef9c2
+  Pass: !<reference> 9cdf7a36-0f5c-42a1-a132-71a2de5d1200

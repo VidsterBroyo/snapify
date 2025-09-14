@@ -1,0 +1,110 @@
+- !<ObjectPrefab/7ebffc66-79b2-4ef1-ad4a-b61c7850655f>
+  PackagePath: ""
+  objects:
+    - !<own> bf1ecf71-cab9-4f4f-bb6d-07f249f95bec
+  LazyLoading: false
+  RetainAssets: true
+- !<SceneObject/1ed07381-1b26-4fac-af25-6c8649b9156d>
+  PrefabRemaps:
+    []
+  Name: geometry_0
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> bf547d64-37eb-4ea7-8fee-58d3a9ba4209
+- !<SceneObject/4954ad2f-34c7-416b-945d-fa4c147bf3af>
+  PrefabRemaps:
+    []
+  Name: Scenes
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 7ab1684c-194b-427f-8e51-2b557564f305
+  Components:
+    []
+- !<SceneObject/7ab1684c-194b-427f-8e51-2b557564f305>
+  PrefabRemaps:
+    []
+  Name: Scene0
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 8b804c93-4cd7-4589-91e5-b7eee6b2f978
+  Components:
+    - !<own> ff44b9b4-f074-47a5-9e72-d503950e0bee
+- !<SceneObject/8b804c93-4cd7-4589-91e5-b7eee6b2f978>
+  PrefabRemaps:
+    []
+  Name: world
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 1ed07381-1b26-4fac-af25-6c8649b9156d
+  Components:
+    []
+- !<SceneObject/bf1ecf71-cab9-4f4f-bb6d-07f249f95bec>
+  PrefabRemaps:
+    []
+  Name: nature_table
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 100.000000, y: 100.000000, z: 100.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 4954ad2f-34c7-416b-945d-fa4c147bf3af
+  Components:
+    []
+- !<RenderMeshVisual/bf547d64-37eb-4ea7-8fee-58d3a9ba4209>
+  PrefabRemaps:
+    []
+  Name: geometry_0
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> eb16eff8-c377-4683-a9bc-596b41d604aa
+  Mesh: !<reference> af25927c-cbb9-4fed-a561-90776332318c
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<AnimationPlayer/ff44b9b4-f074-47a5-9e72-d503950e0bee>
+  PrefabRemaps:
+    []
+  Name: component_1
+  Enabled: true
+  Autoplay: true
+  ClipRangeType: Frames
+  AnimationClips:
+    []
