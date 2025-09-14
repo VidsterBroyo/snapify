@@ -27,21 +27,23 @@ function dragOverride({ product, onDragStart, x = null, y = null }) {
 function Tooltip({ product }) {
   const [isDragging, setIsDragging] = useState(false);
   const productUrl = `https://shop.app/products/${product.handle || product.id}`;
+
+  // Truncate title if too long
+  const truncatedTitle =
+    product.title.length > 30 ? product.title.slice(0, 30) + "..." : product.title;
+
   return (
     <div
       className="absolute bg-black -top-21 -right-28 z-10 p-2 hidden group-hover:block border border-white pointer-events-auto"
       draggable={false}
     >
-      <div
-        className="bg-black text-white text-l px-2 rounded-lg shadow-lg whitespace-nowrap"
-        draggable={false}
-      >
-        <h1 className="text-xl">{product.title}</h1>
+      <div className="bg-black text-white text-l z-10 px-2 rounded-lg shadow-lg whitespace-nowrap" draggable={false}>
+        <h1 className="text-xl">{truncatedTitle}</h1>
       </div>
       <h2 className="px-2" draggable={false}>
-        {`$${Number(product.variants.edges[0].node.price.amount).toFixed(2)}`}
+        {`$${Number(product.variants.edges[0].node.price.amount).toFixed(2)} (CAD)`}
       </h2>
-      <div className="flex px-2" draggable={false}>
+      <div className="flex px-2 z-10" draggable={false}>
         <a
           href={productUrl}
           target="_blank"
@@ -62,12 +64,13 @@ function Tooltip({ product }) {
 }
 
 function Furniture({ product, onDragStart }) {
+  const [hovered, setHovered] = useState(false);
   return (
-    <div className="w-24 relative group overflow-visible">
+    <div className={`w-20 relative group overflow-visible hover:border hover:rounded-xl hover:border-4 hover:border-green-200`} onMouseOver={() => {setHovered(true)}} onMouseLeave={() => {setHovered(false)}}>
       <img
         src={product.images.edges[0]?.node.url}
         alt={product.title}
-        className="w-full h-24 object-cover rounded-lg cursor-grab"
+        className="aspect-square w-full object-cover rounded-lg cursor-grab"
         draggable
         onDragStart={dragOverride({ product, onDragStart })}
       />
@@ -76,16 +79,19 @@ function Furniture({ product, onDragStart }) {
   );
 }
 
-function GridSlot({ x, y, furniture, onDrop, onDragStart }) {
+function GridSlot({ x, y, furniture, onDrop, onDragStart, isCenter }) {
   return (
     <div
-      onDragOver={(e) => e.preventDefault()}
-      onDrop={() => onDrop(x, y)}
+      onDragOver={(e) => !isCenter && e.preventDefault()}
+      onDrop={() => !isCenter && onDrop(x, y)}
       className={`aspect-square border border-gray-500 flex items-center justify-center ${
         furniture ? "" : "bg-black"
-      }`}
+      } relative ${isCenter ? "pointer-events-none" : ""}`}
     >
-      {furniture && (
+      {isCenter && (
+        <span className="text-white font-bold text-lg absolute pointer-events-none select-none">You</span>
+      )}
+      {furniture && !isCenter && (
         <div
           draggable
           onDragStart={dragOverride({ product: furniture, onDragStart, x, y })}
@@ -122,7 +128,7 @@ function App() {
   ];
 
   const [grid, setGrid] = useState(
-    Array.from({ length: 8 }, () => Array(8).fill(null))
+    Array.from({ length: 7 }, () => Array(7).fill(null))
   );
   const [draggingProduct, setDraggingProduct] = useState(null);
   const [draggingFromGrid, setDraggingFromGrid] = useState(null); // track grid source
@@ -252,7 +258,7 @@ function App() {
     setLoading(true);
 
     // Reset grid locally
-    const emptyGrid = Array.from({ length: 8 }, () => Array(8).fill(null));
+    const emptyGrid = Array.from({ length: 7 }, () => Array(7).fill(null));
     setGrid(emptyGrid);
     setProducts([]);
 
@@ -728,15 +734,19 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-8 bg-[#212121]">
+    <div className="min-h-screen flex flex-col items-center justify-center p-8 bg-[radial-gradient(circle_at_top_left,_#212121,_#121212)]">
       <div className="max-w-3xl w-full flex flex-col items-center gap-6">
         <img
           src="https://i.postimg.cc/ncM7xyKs/image-removebg-preview-2.png"
           className="h-32"
         ></img>
         <div className="text-center">
-          <h1 className="text-white text-7xl font-semibold mb-2">Snapify</h1>
-          <p className="mt-4 text-2xl text-chat-placeholder font-normal">
+          <h1 className="text-7xl font-semibold mb-2 mt-[-6px]
+            bg-gradient-to-r from-green-400 to-yellow-400
+            bg-clip-text text-transparent leading-[1.4]">
+            Snapify
+          </h1>
+          <p className="mt-4 text-2xl text-chat-placeholder font-normal relative after:content-['|'] after:ml-1 after:animate-blink typing-animation">
             How can I help you today?
           </p>
         </div>
@@ -748,7 +758,7 @@ function App() {
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
                 placeholder="What vibe are you feeling ?"
-                className="flex-1 bg-transparent border-none outline-none text-chat-text text-base leading-6 resize-none min-h-32 max-h-48 font-inherit placeholder-chat-placeholder"
+                className="flex-1 bg-transparent border-none outline-none text-l leading-6 resize-none min-h-24 max-h-48 font-inherit placeholder-chat-placeholder"
                 rows={1}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" && !e.shiftKey) {
@@ -799,38 +809,68 @@ function App() {
         </div>
       </div>
 
-      {/* Inventory */}
-      <h1
-        className={`mb-0 text-2xl font-bold ${products.length == 0 ? "hidden" : "visible"}`}
-      >
-        Inventory
-      </h1>
-      <div className="w-8/10 flex flex-wrap gap-2 justify-center mt-4">
-        {products.map((product) => (
-          <Furniture
-            key={product.id}
-            product={product}
-            onDragStart={handleDragStart}
-          />
-        ))}
-      </div>
+      <div className="w-full flex mt-12">
+          <div className="w-47/100 flex flex-col items-center">
+            {/* Inventory */}
+            <h1
+              className={`mb-0 text-2xl font-bold`}
+            >
+              Inventory
+            </h1>
+            <div
+              className="w-7/10 flex flex-wrap gap-2 content-center justify-center min-h-24 bg-[#272727] mt-2"
+              onDragOver={(e) => e.preventDefault()} // allow dropping
+              onDrop={() => {
+                if (!draggingProduct) return;
 
-      {/* Room Grid */}
-      <h1 className="mb-0 text-2xl font-bold">Room Layout</h1>
-      <div className="w-full max-w-xl grid grid-cols-8 gap-1 mt-3 p-1 border-2 border-white rounded-xl">
-        {grid.map((row, y) =>
-          row.map((slot, x) => (
-            <GridSlot
-              key={`${x}-${y}`}
-              x={x}
-              y={y}
-              furniture={slot}
-              onDrop={handleDrop}
-              onDragStart={handleDragStart}
-            />
-          ))
-        )}
+                // Remove from grid if dragging from there
+                if (draggingFromGrid) {
+                  setGrid((prev) => {
+                    const newGrid = prev.map((row) => [...row]);
+                    newGrid[draggingFromGrid.y][draggingFromGrid.x] = null;
+                    updateBackendGrid(newGrid);
+                    return newGrid;
+                  });
+                  setDraggingFromGrid(null);
+                }
+
+                // Add back to inventory
+                setProducts((prev) => [...prev, draggingProduct]);
+                setDraggingProduct(null);
+              }}
+            >
+              {products.length > 0 ? (
+                products.map((product) => (
+                  <Furniture key={product.id} product={product} onDragStart={handleDragStart} />
+                ))
+              ) : (
+                <div className="text-[#AEAEAE]">Empty Inventory</div>
+              )}
+            </div>
+          </div>
+        
+          <div className="w-53/100 flex flex-col items-center">
+            {/* Room Grid */}
+            <h1 className="mb-0 text-2xl font-bold">Room Layout</h1>
+            <div className="w-full max-w-xl grid grid-cols-7 gap-1 mt-3 p-1 border-4 border-[#787878] rounded-xl">
+              {grid.map((row, y) =>
+                row.map((slot, x) => (
+                  <GridSlot
+                    key={`${x}-${y}`}
+                    x={x}
+                    y={y}
+                    furniture={slot}
+                    onDrop={handleDrop}
+                    onDragStart={handleDragStart}
+                    isCenter={x === 3 && y === 3} // 0-based center
+                  />
+                ))
+              )}
+            </div>
+          </div>
+          
       </div>
+  
     </div>
   );
 }
