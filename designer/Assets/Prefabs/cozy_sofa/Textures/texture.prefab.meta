@@ -1,0 +1,62 @@
+- !<AssetImportMetadata/639866d8-c00f-4b55-8c57-3733ab85c7dd>
+  ImportedAssetIds:
+    ObjectPrefab: !<reference> 9bb36889-ec17-4983-8f56-f5d8955b06ce
+  ImporterName: ObjectPrefabImporter
+  PrimaryAsset: !<reference> 9bb36889-ec17-4983-8f56-f5d8955b06ce
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    ObjectPrefab: !<own> 474a65ad-2e75-4895-8662-c1b6d66e9978
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ObjectPrefab/1ad01835-5c69-405d-a191-6ad0d54c7b3e>
+  PackagePath: ""
+  objects:
+    - !<own> a799f85c-96c1-481d-8c1c-9e2f68ea4c01
+  LazyLoading: false
+  RetainAssets: true
+- !<ObjectPrefabAssetData/474a65ad-2e75-4895-8662-c1b6d66e9978>
+  SourceRemaps:
+    - 9bb36889-ec17-4983-8f56-f5d8955b06ce: 1ad01835-5c69-405d-a191-6ad0d54c7b3e
+    - b26c4d13-57b9-4b5b-a75b-6effe0540cf5: a799f85c-96c1-481d-8c1c-9e2f68ea4c01
+    - ef923ad3-d402-4f4a-a70f-9bef2d80be9d: 8fd1fd49-e5c5-4c4b-947f-00276a46d224
+  SourceState: !<own> 1ad01835-5c69-405d-a191-6ad0d54c7b3e
+- !<Image/8fd1fd49-e5c5-4c4b-947f-00276a46d224>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 1302636a-a011-4042-a06a-79f6f72739e4
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/a799f85c-96c1-481d-8c1c-9e2f68ea4c01>
+  PrefabRemaps:
+    []
+  Name: texture
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 8fd1fd49-e5c5-4c4b-947f-00276a46d224

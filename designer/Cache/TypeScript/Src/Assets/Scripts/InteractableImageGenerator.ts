@@ -22,7 +22,7 @@ export class InteractableImageGenerator extends BaseScriptComponent {
   private imageGenerator: ImageGenerator = null;
 
   onAwake() {
-    this.imageGenerator = new ImageGenerator(this.modelProvider);
+
     this.createEvent("OnStartEvent").bind(() => {
       this.asrQueryController.onQueryEvent.add((query) => {
         this.createImage(query);
@@ -33,7 +33,7 @@ export class InteractableImageGenerator extends BaseScriptComponent {
   createImage(prompt: string) {
     this.textDisplay.text = "Imagining... " + prompt;
     this.imageGenerator
-      .generateImage(prompt)
+      .generateImage()
       .catch((error) => {
         print("Error generating room: " + error);
         this.textDisplay.text = "Error Generating Room :(";

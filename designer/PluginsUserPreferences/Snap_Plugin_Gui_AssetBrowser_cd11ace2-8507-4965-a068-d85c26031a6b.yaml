@@ -1,8 +1,63 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 716
+    size: 805
     values:
+      - ""
+      - Base.png
+      - Instantiation.lspkg/Assets
+      - Instantiation.lspkg/Assets/Base.png
+      - Instantiation.lspkg/Assets/Box.mesh
+      - Instantiation.lspkg/Assets/Simple Diffuse.ss_graph
+      - Instantiation.lspkg/Assets/Simple PBR.mat
+      - Instantiation.lspkg/Assets/SimpleDiffuse.mat
+      - Instantiation.lspkg/Assets/Sphere.mesh
+      - Instantiation.lspkg/Assets/simple_pbr.ss_graph
+      - Instantiation.lspkg/ExamplePrefabInstantiateBox1.prefab
+      - Instantiation.lspkg/ExamplePrefabInstantiateBox2.prefab
+      - Instantiation.lspkg/ExamplePrefabInstantiateSphere.prefab
+      - Instantiation.lspkg/ExamplePrefabInstantiateSphere2.prefab
+      - Instantiation.lspkg/JS
+      - Instantiation.lspkg/JS/CircleAreaInstantiatorJS.js
+      - Instantiation.lspkg/JS/CirclePerimeterInstantiatorJS.js
+      - Instantiation.lspkg/JS/CirclePerimeterInstantiatorWithFixedArcLengthJS.js
+      - Instantiation.lspkg/JS/CircleSlicingInstantiatorJS.js
+      - Instantiation.lspkg/JS/InstantiateAlongLineJS.js
+      - Instantiation.lspkg/JS/InstantiateAlongLineWithFixedDistanceJS.js
+      - Instantiation.lspkg/JS/InstantiateOn2DGridsJS.js
+      - Instantiation.lspkg/JS/InstantiateOn3DGridsJS.js
+      - Instantiation.lspkg/JS/RandomPointsInsideBoxJS.js
+      - Instantiation.lspkg/JS/RandomPointsInsideSphereJS.js
+      - Instantiation.lspkg/JS/RandomPointsOnBoxSurfaceJS.js
+      - Instantiation.lspkg/JS/RandomPointsOnSphereSurfaceJS.js
+      - Instantiation.lspkg/JS/SimpleCircleAreaInstantiatorJS.js
+      - Instantiation.lspkg/JS/SimpleColliderInstantiatorJS.js
+      - Instantiation.lspkg/JS/SquareAreaInstantiatorJS.js
+      - Instantiation.lspkg/README.md
+      - Instantiation.lspkg/RuntimeGizmos
+      - Instantiation.lspkg/RuntimeGizmos/Line.ts
+      - Instantiation.lspkg/TS
+      - Instantiation.lspkg/TS/CircleAreaInstantiatorTS.ts
+      - Instantiation.lspkg/TS/CirclePerimeterInstantiatorTS.ts
+      - Instantiation.lspkg/TS/CirclePerimeterInstantiatorWithFixedArcLengthTS.ts
+      - Instantiation.lspkg/TS/CircleSlicingInstantiatorTS.ts
+      - Instantiation.lspkg/TS/InstantiateAlongLineTS.ts
+      - Instantiation.lspkg/TS/InstantiateAlongLineWithFixedDistanceTS.ts
+      - Instantiation.lspkg/TS/InstantiateOn2DGridsTS.ts
+      - Instantiation.lspkg/TS/InstantiateOn3DGridsTS.ts
+      - Instantiation.lspkg/TS/RandomPointsInsideBoxTS.ts
+      - Instantiation.lspkg/TS/RandomPointsInsideSphereTS.ts
+      - Instantiation.lspkg/TS/RandomPointsOnBoxSurfaceTS.ts
+      - Instantiation.lspkg/TS/RandomPointsOnSphereSurfaceTS.ts
+      - Instantiation.lspkg/TS/SimpleCircleAreaInstantiatorTS.ts
+      - Instantiation.lspkg/TS/SimpleColliderInstantiatorTS.ts
+      - Instantiation.lspkg/TS/SquareAreaInstantiatorTS.ts
+      - "Instantiation.lspkg/[Instantiation].prefab"
+      - Instantiation.lspkg/_Art
+      - Instantiation.lspkg/_Art/Shader
+      - Instantiation.lspkg/_Art/Shader/simple_pbr.ss_graph
+      - Instantiation.lspkg/package.native
+      - Instantiation.lspkg/package_dependencies.json
       - LSTween.lspkg
       - LSTween.lspkg/Examples
       - LSTween.lspkg/Examples/Assets
@@ -28,8 +83,40 @@ CollapsedEntities:
       - LSTween.lspkg/TweenJS/Version.ts
       - LSTween.lspkg/TweenJS/mainGroup.ts
       - LSTween.lspkg/package.native
-      - Prefabs
       - Prefabs/Snap3DInteractable.prefab
+      - Prefabs/cozy_cabinet
+      - Prefabs/cozy_cabinet/.hidden
+      - Prefabs/cozy_cabinet/.hidden/Material 1.ss_graph
+      - Prefabs/cozy_cabinet/Materials
+      - Prefabs/cozy_cabinet/Materials/Material 1.mat
+      - Prefabs/cozy_cabinet/Meshes
+      - Prefabs/cozy_cabinet/Meshes/geometry_0.mesh
+      - Prefabs/cozy_cabinet/Textures
+      - Prefabs/cozy_cabinet/Textures/texture.png
+      - Prefabs/cozy_cabinet/cozy_cabinet.prefab
+      - Prefabs/cozy_sofa
+      - Prefabs/cozy_sofa/.hidden
+      - Prefabs/cozy_sofa/.hidden/Material 1.ss_graph
+      - Prefabs/cozy_sofa/Materials/Material 1.mat
+      - Prefabs/cozy_sofa/Meshes/ImageMaterial.mat
+      - Prefabs/cozy_sofa/Meshes/geometry_0.mesh
+      - Prefabs/cozy_sofa/Textures
+      - Prefabs/cozy_sofa/Textures/ImageMaterial 2.mat
+      - Prefabs/cozy_sofa/Textures/ImageMaterial.mat
+      - Prefabs/cozy_sofa/Textures/texture.png
+      - Prefabs/cozy_sofa/Textures/texture.prefab
+      - Prefabs/cozy_sofa/cozy_sofa.prefab
+      - Prefabs/modern_table
+      - Prefabs/modern_table/.hidden
+      - Prefabs/modern_table/.hidden/Material 1.ss_graph
+      - Prefabs/modern_table/Materials
+      - Prefabs/modern_table/Materials/Material 1.mat
+      - Prefabs/modern_table/Meshes
+      - Prefabs/modern_table/Meshes/geometry_0.mesh
+      - Prefabs/modern_table/Textures/ImageMaterial.mat
+      - Prefabs/modern_table/Textures/texture.png
+      - Prefabs/modern_table/modern_table.prefab
+      - Remote Service Gateway.lspkg
       - Remote Service Gateway.lspkg/Helpers
       - Remote Service Gateway.lspkg/Helpers/AudioProcessor.ts
       - Remote Service Gateway.lspkg/Helpers/DynamicAudioOutput.ts
@@ -688,6 +775,7 @@ CollapsedEntities:
       - SpectaclesInteractionKitExamples.lspkg/Examples/SIK Examples.prefab
       - SpectaclesInteractionKitExamples.lspkg/package.native
       - SpectaclesInteractionKitExamples.lspkg/package_dependencies.json
+      - Visuals
       - Visuals/AI Visual
       - Visuals/AI Visual/Animations
       - Visuals/AI Visual/Animations/BaseLayer.animationMixerLayer
@@ -719,4 +807,5 @@ CollapsedEntities:
       - Visuals/Textures/NoInternetAlert.png
       - Visuals/Textures/NoInternetWarning.mat
       - Visuals/image_unlit.ss_graph
+      - modern_table.prefab
   options: 4

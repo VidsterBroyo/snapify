@@ -1,0 +1,40 @@
+- !<ObjectPrefab/9bb36889-ec17-4983-8f56-f5d8955b06ce>
+  PackagePath: ""
+  objects:
+    - !<own> b26c4d13-57b9-4b5b-a75b-6effe0540cf5
+  LazyLoading: false
+  RetainAssets: true
+- !<SceneObject/b26c4d13-57b9-4b5b-a75b-6effe0540cf5>
+  PrefabRemaps:
+    []
+  Name: texture
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> ef923ad3-d402-4f4a-a70f-9bef2d80be9d
+- !<Image/ef923ad3-d402-4f4a-a70f-9bef2d80be9d>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 1302636a-a011-4042-a06a-79f6f72739e4
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000

@@ -9,10 +9,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.InteractableImageGenerator = void 0;
 var __selfType = requireType("./InteractableImageGenerator");
 function component(target) { target.getTypeName = function () { return __selfType; }; }
-const ImageGenerator_1 = require("./ImageGenerator");
 let InteractableImageGenerator = class InteractableImageGenerator extends BaseScriptComponent {
     onAwake() {
-        this.imageGenerator = new ImageGenerator_1.ImageGenerator(this.modelProvider);
         this.createEvent("OnStartEvent").bind(() => {
             this.asrQueryController.onQueryEvent.add((query) => {
                 this.createImage(query);
@@ -22,7 +20,7 @@ let InteractableImageGenerator = class InteractableImageGenerator extends BaseSc
     createImage(prompt) {
         this.textDisplay.text = "Imagining... " + prompt;
         this.imageGenerator
-            .generateImage(prompt)
+            .generateImage()
             .catch((error) => {
             print("Error generating room: " + error);
             this.textDisplay.text = "Error Generating Room :(";

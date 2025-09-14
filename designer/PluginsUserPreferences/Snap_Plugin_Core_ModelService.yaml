@@ -1,5 +1,9 @@
 ExternalSources:
   type: "std::map<class Es::Uuid,class Es::Path,struct std::less<class Es::Uuid>,class std::allocator<struct std::pair<class Es::Uuid const ,class Es::Path> > >"
   value:
-    []
+    - 591508bd-7464-4d58-b265-46cc6cc95b6d: "C:/Program Files/Snap Inc/Lens Studio/JsPlugins/PresetsRegistry/Assets/PBRMaterial/Resources/pbr.ss_graph"
+    - 7dcb700d-287b-4e8e-81a5-1717a80386e0: "C:/Program Files/Snap Inc/Lens Studio/Plugins/Es_ShaderGraph_Model.bundle/InstantiationResources/Base.png"
+    - b054cc00-3e51-4774-a753-0d27acc0025d: "C:/Program Files/Snap Inc/Lens Studio/JsPlugins/PresetsRegistry/Assets/Resources/MaterialParams.png"
+    - d41494dd-3a2a-4468-b038-cb188f58c5af: "C:/Program Files/Snap Inc/Lens Studio/JsPlugins/PresetsRegistry/Assets/Resources/Normal.png"
+    - de5c9ec2-2dab-4dd4-818d-f2933f2e8d0b: "C:/Users/vidst/AppData/Local/Snap/Lens Studio/LibraryComponents/Instantiation.lspkg"
   options: 4
